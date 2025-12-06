@@ -1,3 +1,11 @@
+After 11/24/25
+-Fixed undefined senses for Terran Magen
+-Bastion turns are now a flat 7 DT, so I removed the downtime costs from my Workaround. I left in the LR and other time requirements, since that determines what you can actually do in a single turn.
+-Also clarified that the Teleportation Circle result is Wizard spells only.
+-Added in the Bastion facilities from Heroes of Faerun with interesting mechanics. 
+-Added sources to my AL adjustments file so it should actually work even if you don't have all the 2014 scripts installed. It still requires Poke's 2024 scripts first.
+-Added in more items from DCs
+
 After 10/12/25
 - Wrote script for AL legal Book of Hungers options (feats, species, backgrounds)
 - Wrote script for items from Netheril's Fall and non-artifact items from Adventures in Faerun, including the summon statblocks as companions

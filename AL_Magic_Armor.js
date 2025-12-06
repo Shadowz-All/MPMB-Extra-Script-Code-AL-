@@ -50,13 +50,15 @@ SourceList["AL:FC"] = {   //Fai Chen & Trading Post
 	defaultExcluded : true
 };
 
-SourceList["WDotMM"] = {	//For standard items with specific flavor. New items are added via MPMB's code.
+if (!SourceList.WDotMM) {
+	SourceList.WDotMM = {	//For standard items with specific flavor. New items are added via MPMB's code.
 	name : "Waterdeep: Dungeon of the Mad Mage [items]",
 	abbreviation : "WDotMM",
 	group : "Adventure Books",
 	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/waterdeep-dungeon-mad-mage",
 	date : "2018/11/20"
-};
+	};
+}
 
 
 //AL Flavored Armor
@@ -760,7 +762,7 @@ MagicItemsList["al armor (common)"] = {
 		choicesNotInMenu : true,
 		rarity : "common",
 		magicItemTable : "?",
-	choices : ["Cast-Off Studded Leather (FR-DC-Saerloon-5)","Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Breastplate: Gilded Jeer (FR-DC-AKU-1)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Cast-Off Plate (BMG-DRW-OD-5)","Cast-Off Plate: Sorcerous Paladin of Love and Justice Costume (FR-DC-RPSG-10)","Cast-Off Plate: Bluesteel (FR-DC-THAY-4)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression: Do'Urden (FR-DC-SCROG-2)","Shield of Expression (WBW-DC-CONMAR-10)","Shield of Expression (WBW-DC-DCS-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Breastplate of Gleaming: Heth's Dragon Scale Cuirass (PS-DC-HRS-0)","Breastplate of Gleaming: Froghemoth Hide (PS-DC-TT-202)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)","Half Plate of Gleaming (PS-DC-ELEMENT-DEATH-1)","Half Plate of Gleaming: Plasma Armor (PS-DC-FOT-1)","Half Plate of Gleaming (PS-DC-NOS-4)","Half Plate of Gleaming: Misty's Jacket (PS-DC-PKL-14)","Half Plate of Gleaming (SJ-DC-TKM-WGS)","Plate of Gleaming (SJ-DC-DWR-0-2)"],
+	choices : ["Cast-Off Studded Leather (FR-DC-Saerloon-5)","Cast-Off Breastplate (DC-POA-CONMAR-6)","Cast-Off Breastplate: Ooze (DC-POA-GaryXIII-4)","Cast-Off Breastplate (DC-POA-HAG-SF4)","Cast-Off Breastplate: Gilded Jeer (FR-DC-AKU-1)","Cast-Off Breastplate: Cast-Iron (FR-DC-SCROG-LGD-1)","Cast-Off Chain Mail: Scavenger's Shroud (CCC-DES-4-1)","Cast-Off Half Plate: Burlwood (FR-DC-UCON25-1)","Cast-Off Plate (BMG-DRW-OD-5)","Cast-Off Plate: Sorcerous Paladin of Love and Justice Costume (FR-DC-RPSG-10)","Cast-Off Plate: Bluesteel (FR-DC-THAY-4)","Shield of Expression (DC-POA-CONMAR-15)","Shield of Expression (DC-POA-SNIPE-1)","Shield of Expression: Do'Urden (FR-DC-SCROG-2)","Shield of Expression (WBW-DC-CONMAR-10)","Shield of Expression (WBW-DC-DCS-1)","Smoldering Armor: Flurried Furs (DDAL0-4)","Smoldering Studded Leather (DC-POA-CODEX-2)","Smoldering Studded Leather (DC-POA-CONMAR-8)","Smoldering Studded Leather (DC-POA-GSP2-2H)","Smoldering Studded Leather: Smokin' Hot Leather (DC-POA-LEGIT-SV-02)","Smoldering Studded Leather (DC-POA-OGG-1)","Smoldering Studded Leather: Armor of the Dark Knight (DC-POA-TDG1-4)","Smoldering Studded Leather (DDAL10-0)","Smoldering Scale Mail: Stygian Armor (CCC-GSP2-2)","Smoldering Breastplate: Jökulsbrynja (DC-POA-CONMAR-3)","Smoldering Breastplate: Wintergreen Guard (DC-POA-LEGIT-SV-01)","Breastplate of Gleaming: Heth's Dragon Scale Cuirass (PS-DC-HRS-0)","Breastplate of Gleaming: Froghemoth Hide (PS-DC-TT-202)","Spiked Armor of Gleaming: Axehead's Coat of Beaks (CCC-MTL-3)","Half Plate of Gleaming (PS-DC-ELEMENT-DEATH-1)","Half Plate of Gleaming: Plasma Armor (PS-DC-FOT-1)","Half Plate of Gleaming (PS-DC-NOS-4)","Half Plate of Gleaming: Misty's Jacket (PS-DC-PKL-14)","Half Plate of Gleaming (SJ-DC-TKM-WGS)","Plate of Gleaming (SJ-DC-DWR-0-2)"],
 	"cast-off studded leather (fr-dc-saerloon-5)" : {
 		name : "Cast-Off Studded Leather (FR-DC-Saerloon-5)",
 		source : [["AL", "FR-DC"]],
@@ -808,6 +810,15 @@ MagicItemsList["al armor (common)"] = {
 		armorAdd : { select : "Cast-Off Breastplate", options : ["Cast-Off Breastplate"] },
 		action : [["action", "Cast-Off Breastplate"]]
 	},
+	"cast-off breastplate: cast-iron (fr-dc-scrog-lgd-1)" : {
+		name : "Cast-Iron Cast-Off Breastplate (SCROG-LGD-1)",
+		source : [["AL", "FR-DC"]],
+		type : "armor (medium)",
+		description : "This breastplate is made from two cast-iron skillets held together with twine, magic and prayers. It’ll keep your insides on the insides and cook yer eggs in the morning. I can doff the armor as a Magic action.",
+		descriptionFull : "It might look like two cast-iron skillets held together by twine and prayers, but it’ll keep your insides on the insides, and cook yer eggs in the morning.\n   " + toUni("Strange Material") + ". This armor is made from two cast-iron skillets held together by twine and magic.\n   You can doff this armor as a Magic action.",
+		armorAdd : { select : "Cast-Off Breastplate", options : ["Cast-Off Breastplate"] },
+		action : [["action", "Cast-Off Breastplate"]]
+	},
 	"cast-off chain mail: scavenger's shroud (ccc-des-4-1)" : {
 		name : "Scavenger's Shroud (Cast-Off Chain Mail)",
 		source : [["AL", "CCC"]],
@@ -816,6 +827,15 @@ MagicItemsList["al armor (common)"] = {
 		descriptionFull : "This cleverly crafted cowl and coat combination is made of worn leather, covered in dangling chains and hooks, and gives the appearance of a chain devil (kyton) to any that wear it. Made of interlocking metal rings, chain mail includes a layer of quilted fabric worn underneath the mail to prevent chafing and to cushion the impact of blows. The suit includes gauntlets.\n   You can doff this armor as a Magic action.",
 		armorAdd : { select : "Cast-Off Chain Mail", options : ["Cast-Off Chain Mail"] },
 		action : [["action", "Cast-Off Chain Mail"]]
+	},
+	"cast-off half plate: burlwood (fr-dc-ucon25-1)" : {
+		name : "Burlwood Cast-Off Half Plate (UCON25-1)",
+		source : [["AL", "FR-DC"]],
+		type : "armor (medium)",
+		description : "This half-plate is made of the swirling grained violet wood of the Morcant Burl tree. The vines that hold it together will release with a Magic action, letting me doff the armor.",
+		descriptionFull : "This half-plate is made of the swirling grained, violet wood of the Morcant Burl tree. Though it is made of wood, it functions as a suit of half-plate. The vines that hold it together can be caused to release it with a Magic action.\n   " + toUni("Strange Materials") + ". The item was created from a material that is bizarre given its purpose. Its durability is unaffected.\n   You can doff this armor as a Magic action.",
+		armorAdd : { select : "Burlwood Half Plate", options : ["Burlwood Half Plate"] },
+		action : [["action", "Cast-Off Half Plate"]]
 	},
 	"cast-off plate (bmg-drw-od-5)" : {
 		name : "Cast-Off Plate (BMG-DRW-OD-5)",
@@ -2353,5 +2373,4 @@ MagicItemsList["al shields"] = {
 		shieldAdd : "Spellguard Shield",
 		savetxt : { adv_vs : ["spells", "magical effects"], text : ["Spell attack rolls Disadvantage against me"] },
 	},
-
 }

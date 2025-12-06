@@ -183,6 +183,7 @@ CreatureList["terran magen"] = {
 		"perception" : 7
 	},
 	passivePerception : 17,
+	senses : "",
 	challengeRating : 8,
 	proficiencyBonus : 3,
 	attacksAction : 2,

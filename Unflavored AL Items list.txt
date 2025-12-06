@@ -340,6 +340,9 @@ FR-DC-RWIE-3 Circus Berserkus
 FR-DC-Saerloon-5 That's a Lot of Flambe
 -Dust of Corrosion
 
+FR-DC-SCROG-LGD-01 Legend of the Hellish Hay Bale
+-Keoghtom's Ointment
+
 FR-DC-SCROOGE-1 Funny Bunny Business
 -Cloak of Many Fashions
 -Pipes of the Sewers
@@ -575,7 +578,7 @@ PS-DC-NOS-4 Goddess Interrupted
 PS-DC-MORD-1 Mordekainen's Memory Palace
 -Deck of Illusion
 
-PS-DC-PANDORA-JWEI-S2-05
+PS-DC-PANDORA-JWEI-S2-05 Fall the Eternal Night, Despair
 -Hat of Many Spells
 -Charm of the Fates
 -Rod of the Pact Keeper +3
@@ -639,6 +642,11 @@ RV-DC-OH1 In the Mist of Keening
 
 RV-DC-SDG-01 A Cursed Key
 -Driftglobe
+
+SJ-DC-AMAK Starlight's Lament
+-Astromancy Archive
+-Talking Doll
+-Keoghtom's Ointment
 
 SJ-DC-ANGKA-7 Sleep Now in the Fire
 -Pipe of Remembrance

@@ -22,11 +22,25 @@ RequiredSheetVersion("13.2.0");
 -Includes some Bastion options as a class feature to help track their mechanics/cost in AL (only special facilities I might use are listed, but it would be easy enough to build on)*/
 
 
+//This script is designed to be used on top of Poke's 2024 code so those sources aren't listed out separately. However, I've included code to add the other sources if they aren't already listed.
+
+if (!SourceList.X) {
+	SourceList.X = {
+	name : "Xanathar's Guide to Everything",
+	abbreviation : "XGtE",
+	abbreviationSpellsheet : "X",
+	group : "Primary Sources",
+	url : "https://dnd.wizards.com/products/xanathars-guide-everything",
+	date : "2017/11/21"
+	};
+}
+
+
 // Add Warlock Invocations (Xanathar's)
 AddWarlockInvocation("Aspect of the Moon (prereq: Pact of the Tome)", {
 	name : "Aspect of the Moon",
 	description : "\n   " + "I don't need sleep nor can be forced to by any means; I can rest while doing light activity",
-	source : [["X", 56], ["UA:RCO", 5]],
+	source : [["X", 56]],
 	submenu : "[Improves Pact of the Tome]",
 	prereqeval : function(v) { return GetFeatureChoice("classes", "warlock", "eldritch invocations", true).indexOf("pact of the tome") !== -1; },
 	savetxt : { text : ["Nothing can force me to sleep"] }
@@ -39,7 +53,7 @@ AddWarlockInvocation("Cloak of Flies (prereq: level 5 warlock)", {
 		"The aura grants me adv. on Cha (Intimidation), but disadv. on all other Cha checks",
 		"Creatures starting their turn in the aura take my Cha mod (min 0) in poison damage"
 	]),
-	source : [["X", 56], ["UA:RCO", 5]],
+	source : [["X", 56]],
 	submenu : "[Warlock Level 5+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	recovery : "short rest",
@@ -62,14 +76,14 @@ AddWarlockInvocation("Ghostly Gaze (prereq: level 7 warlock)", {
 AddWarlockInvocation("Gift of the Ever-Living Ones (prereq: Pact of the Chain)", {
 	name : "Gift of the Ever-Living Ones",
 	description : "\n   " + "When I regain HP while my familiar is within 100 ft, I regain the max the dice can roll",
-	source : [["X", 57], ["UA:RCO", 6]],
+	source : [["X", 57]],
 	submenu : "[Improves Pact of the Chain]",
 	prereqeval : function(v) { return GetFeatureChoice("classes", "warlock", "eldritch invocations", true).indexOf("pact of the chain") !== -1; },
 });
 AddWarlockInvocation("Grasp of Hadar (prereq: Eldritch Blast cantrip)", {
 	name : "Grasp of Hadar",
 	description : desc("Once per turn when my Eldritch Blast hits a creature, I can move it 10 ft closer to me"),
-	source : [["X", 57], ["UA:RCO", 6]],
+	source : [["X", 57]],
 	submenu : "[Improves Eldritch Blast]",
 	prereqeval : function(v) { return v.hasEldritchBlast; },
 	calcChanges : {
@@ -177,7 +191,7 @@ AddWarlockInvocation("Relentless Hex (prereq: level 7 warlock, Hex spell or warl
 AddWarlockInvocation("Shroud of Shadow (prereq: level 15 warlock)", {
 	name : "Shroud of Shadow",
 	description : "\n   " + "I can cast Invisibility at will, without using spell slots (PHB 254)",
-	source : [["X", 57], ["UA:RCO", 6]],
+	source : [["X", 57]],
 	submenu : "[Warlock Level 15+]",
 	spellcastingBonus : [{
 		name : "Shroud of Shadow",
@@ -200,7 +214,7 @@ AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 		"During, I get 10 temp. HP per warlock level, which I use to absorb the triggering damage",
 		"After, till the ice is gone, I also get vulnerability to fire, 0 speed, and am incapacitated"
 	]),
-	source : [["X", 57], ["UA:RCO", 6]],
+	source : [["X", 57]],
 	submenu : "[Warlock Level 5+]",
 	prereqeval : function(v) { return classes.known.warlock.level >= 5; },
 	recovery : "short rest",
@@ -211,7 +225,7 @@ AddWarlockInvocation("Tomb of Levistus (prereq: level 5 warlock)", {
 AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 	name : "Trickster's Escape",
 	description : "\n   " + "Once per long rest, I can cast Freedom of Movement on myself without using a spell slot",
-	source : [["X", 57], ["UA:RCO", 7]],
+	source : [["X", 57]],
 	submenu : "[Warlock Level 7+]",
 	spellcastingBonus : [{
 		name : "Trickster's Escape",
@@ -232,6 +246,18 @@ AddWarlockInvocation("Trickster's Escape (prereq: level 7 warlock)", {
 
 
 // Eldritch Invocation options (Tasha's)
+
+if (!SourceList.T) {
+	SourceList.T = {
+		name : "Tasha's Cauldron of Everything",
+		abbreviation : "TCoE",
+		abbreviationSpellsheet : "T",
+		group : "Primary Sources",
+		url : "https://dnd.wizards.com/products/tashas-cauldron-everything",
+		date : "2020/11/17"
+	};
+}
+
 AddWarlockInvocation("Bond of the Talisman (prereq: level 12 warlock, Pact of the Talisman)", {
 	name : "Bond of the Talisman",
 	source : [["T", 70]],
@@ -338,7 +364,19 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 });
 
 
-//Unreprinted PHB Invocations (most likely no longer allowed per ALPG 15.3)
+//Unreprinted PHB Invocations (most likely no longer allowed per ALPG 15.3 onward)
+
+if (!SourceList.P) {
+	SourceList.P = {
+	name : "Player's Handbook",
+	abbreviation : "PHB",
+	abbreviationSpellsheet : "P",
+	group : "Core Sources",
+	url : "https://dnd.wizards.com/products/rpg_playershandbook",
+	date : "2014/08/19"
+	};
+}
+
  AddWarlockInvocation("Beast Speech", {
 					name : "Beast Speech",
 					description : desc("I can cast Speak with Animals at will, without using a spell slots"),
@@ -569,7 +607,7 @@ AddWarlockInvocation("Undying Servitude (prereq: level 5 warlock)", {
 //Optional Class Features - Ones that weren't reprinted and don't replace removed features, I'm assuming can still be taken
 /*FeatsList["fighting style feat: superior technique"] = {
 		name : "Superior Technique",
-		source : [["T", 41], ["UA:CFV", 5]],
+		source : [["T", 41]],
 		description : " [1 maneuver; d6, 1\xD7 per short rest]" + desc([
 			"I gain one superiority die (d6) that I can expend to fuel a special Maneuver",
 			"I can only use one Maneuver per attack; DCs are 8 + Prof B. + Str/Dex mod, my choice",
@@ -832,6 +870,27 @@ CreateClassFeatureVariant("ranger", "favored enemy", "Favored Foe", TCoE_Favored
 
 
 // Adding the extra Blessings from Icewind Dale: Rime of the Frostmaiden to the 2024 DMG Code made by Poke (other code borrowed from Nod_Hero) 
+
+if (!SourceList.D) {
+	SourceList.D = {
+	name : "Dungeon Master's Guide",
+	abbreviation : "DMG",
+	group : "Core Sources",
+	url : "https://dnd.wizards.com/products/dungeon-masters-guide",
+	date : "2014/12/09"
+	};
+}
+
+if (!SourceList.RotF) {
+	SourceList.RotF = {
+	name : "Icewind Dale: Rime of the Frostmaiden [creatures, items, spells]",
+	abbreviation : "RotF",
+	group : "Adventure Books",
+	url : "https://dnd.wizards.com/products/tabletop-games/rpg-products/icewind-dale-rime-frostmaiden",
+	date : "2020/09/15"
+	};
+}
+
 AddFeatureChoice(FeatsList["blessings"], false, "of the Frostmaiden", {
 	name : "Blessing of the Frostmaiden",
     source : [["RotF", 213]],
@@ -881,6 +940,18 @@ AddFeatureChoice(FeatsList["blessings"], false, "of the Solipsistic Mind", {
 
 
 //Add Charms from Book of Many Things (most of this code is from Nod_hero, I just switched it to a FeatChoice to match Poke's 2024 DMG code)
+
+if (!SourceList.BoMT) {
+	SourceList.BoMT = {
+	name : "The Book of Many Things",
+	abbreviation : "BoMT",
+	abbreviationSpellsheet : "MT",
+	group : "Primary Sources",
+	url : "https://dndstore.wizards.com/us/en/product/865604/the-deck-of-many-things-digital-plus-physical-bundle",
+	date : "2023/11/14"
+	};
+}
+
 FeatsList["charms (book of many things)"] = {
 	name : "Charms (Book of Many Things)",
 	source : [["BoMT", 62]],
@@ -1357,6 +1428,39 @@ FeatsList["epic boon"] = {
 };
 
 // Add Chwinga Charms (also switched to feats to match the 2024 DMG Code [contributed by Nod_Hero]
+
+if (!SourceList.CM) {
+	SourceList.CM = { 
+	name : "Candlekeep Mysteries",
+	abbreviation : "CM",
+	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
+	url : "https://dnd.wizards.com/products/candlekeep-mysteries",
+	date : "2021/03/16"
+	};
+}
+
+if (!SourceList.PaBTSO) {
+	SourceList.PaBTSO = {
+	name : "Phandelver and Below: The Shattered Obelisk [items]",
+	abbreviation : "PaBTSO",
+	group : "Adventure Books",
+	campaignSetting : "Forgotten Realms",
+	url : "https://dndstore.wizards.com/us/product/820931/phandelver-and-below-the-shattered-obelisk-digital-plus-physical-bundle",
+	date : "2023/09/19"
+	};
+}
+
+SourceList["S:AiS"] = {
+	name : "Spelljammer: Adventures in Space",
+	abbreviation : "S:AiS",
+	abbreviationSpellsheet : "SJ",
+	group : "Campaign Sourcebooks",
+	campaignSetting : "Spelljammer",
+	url : "https://dnd.wizards.com/products/spelljammer",
+	date : "2022/08/16"
+};
+
 FeatsList["chwinga charm"] = {
 	name : "Chwinga Charm",
 	source : [["D", 228],["RotF", 283],["CM", 212],["S:AiS", 17]],
@@ -1571,14 +1675,16 @@ FeatsList["chwinga charm"] = {
 // This attempts to adds the winged aasimar from the Adventurers League Player's Guide v9.1: Inglorious Redemption to the new version of Aasimar.
 
 // Define the source
-SourceList["ALPGs9"] = {
+if (!SourceList.ALPGs9) {
+	SourceList.ALPGs9 = { 
 	name : "AL Player's Guide v9.1: Inglorious Redemption",
 	abbreviation : "ALPGs9",
 	group : "Adventurers League",
 	url : "https://www.dropbox.com/s/8r1cwjrk6n2rzyo/AL-Players-Guide-v9.1-Forgotten-Realms.pdf?dl=1", // used to be https://www.dmsguild.com/product/208178
 	date : "2019/09/17",
 	defaultExcluded : true
-};
+	};
+}
 
 [
 	["aasimar", false],
@@ -1617,6 +1723,18 @@ SourceList["ALPGs9"] = {
 });
 
 //This attempts to add the tiefling racial variants from SCAG to the new version. It assumes that you do get to keep the original Tiefling Fire resistance even though you replace the spells, as that's the closest to the original feature. I also didn't bother to code the Feral Tiefling since that was only a stat change.
+
+if (!SourceList.S) {
+	SourceList.S = {
+	name : "Sword Coast Adventure Guide",
+	abbreviation : "SCAG",
+	group : "Campaign Sourcebooks",
+	campaignSetting : "Forgotten Realms",
+	url : "https://dnd.wizards.com/products/sword-coast-adventurers-guide",
+	date : "2015/11/03"
+	};
+}
+
 AddRacialVariant("tiefling", "winged", {
 	regExpSearch : /wing/i,
 	name : "Winged tiefling",
@@ -1864,6 +1982,16 @@ if (ClassSubList["barbarian-wild heart"]) {
 //Due to issues with adding extra choices to other features and the fact that bastions are based on total level, not class level, this is being coded as a lvl 1 class feature for all classes. This means it will show up more than once for multiclasses.
 //There's no easy way to exclude this code by default (using a separate source doesn't work) so if you don't care about bastions at all, delete or mark it out before adding this file.
 
+if (!SourceList.FRHoF) {
+	SourceList.FRHoF = {
+	name: "Forgotten Realms: Heroes of Faerûn",
+	abbreviation: "FRHoF",
+	abbreviationSpellsheet: "HF",
+	group : "Campaign Sourcebooks",
+	campaignSetting : "Forgotten Realms",
+	};
+}
+
 var BastionWorkaround = {
 				name : "Bastion ",
 				source : [["D24", 337]],
@@ -1877,13 +2005,20 @@ var BastionWorkaround = {
 				}),*/
 				additional :  "CL 5: 2, 9: 4, 13: 5, 17: 6 special facilities", 
 				extraname : "Bastion Special Facilities",
-				extrachoices : ["Arcane Study (prereq: can use Arcane Focus/Tool as Spell Focus)", "Demiplane (prereq: can use Arcane Focus/Tool as Spell Focus)", "Greenhouse", "Meditation Chamber", "Observatory (prereq: can use Spell Focus)", "Pub", "Reliquary (prereq: can use Holy Symbol/Druidic Spell Focus)", "Sanctuary (prereq: can use Holy Symbol/Druidic Spell Focus)", "Sanctum (prereq: can use Holy Symbol/Druidic Spell Focus)", "Storehouse", "Teleportation Circle", "Training Area", "Workshop"],
+				extrachoices : ["Amethyst Dragon Den (prereq: PDK)","Arcane Study (prereq: can use Arcane Focus/Tool as Spell Focus)", "Demiplane (prereq: can use Arcane Focus/Tool as Spell Focus)", "Greenhouse", "Harper Hideout (prereq: Harper)","Meditation Chamber", "Observatory (prereq: can use Spell Focus)", "Pub", "Reliquary (prereq: can use Holy Symbol/Druidic Spell Focus)", "Sanctuary (prereq: can use Holy Symbol/Druidic Spell Focus)", "Sanctum (prereq: can use Holy Symbol/Druidic Spell Focus)", "Storehouse", "Teleportation Circle", "Training Area", "Workshop", "Zhentarim Travel Station (prereq: Zhent)"],
 				extraTimes : levels.map(function (n) {
 					return n < 5 ? 0 : n < 9 ? 2 : n < 13 ? 4 : n < 17 ? 5 : 6;
 				}),
+				"amethyst dragon den (prereq: pdk)" : {
+					name : "Amethyst Dragon Den (PDK Only)",
+					description : desc("Empower: Gain Psychic Resistance for 7 days (8 hrs/day for turn)"),
+					source : [["FRHoF", 173]],
+					submenu : "[Level 5+]",
+					prereqeval: function (v) { return v.characterLevel >= 5; },
+				},
 				"arcane study (prereq: can use arcane focus/tool as spell focus)" : {
 					name : "Arcane Study",
-					description : desc("Gain magical charm that lets me cast Identify once without spell slots or Material components. Lasts for 7 days or until used (LR, 1 DT)."),
+					description : desc("Gain magical charm that lets me cast Identify once without spell slots or Material components. Lasts for 7 days or until used (LR). Crafting options."),
 					source : [["D24", 336]],
 					submenu : "[Level 5+]",
 					prereqeval : function(v) { return (v.characterLevel >= 5) && (classes.known.artificer || classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard || (classes.known.rogue && (/arcane trickster/).test(classes.known.rogue.subclass)) || (classes.known.fighter && (/eldritch knight/).test(classes.known.fighter.subclass))); },
@@ -1900,7 +2035,7 @@ var BastionWorkaround = {
 				},
 				"demiplane (prereq: can use arcane focus/tool as spell focus)" : {
 					name : "Demiplane",
-					description : desc("Empower: Gain Temporary Hit Points equal to 5 times my level (LR, 1 DT). Create 1 nonmagical object under 5 GP, no more than 5 ft sq."),
+					description : desc("Empower: Gain Temporary Hit Points equal to 5 times my level (LR). Create 1 nonmagical object under 5 GP, no more than 5 ft sq."),
 					source : [["D24", 340]],
 					submenu : "[Level 17+]",
 					prereqeval : function(v) { return (v.characterLevel >= 17) && (classes.known.artificer || classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard || (classes.known.rogue && (/arcane trickster/).test(classes.known.rogue.subclass)) || (classes.known.fighter && (/eldritch knight/).test(classes.known.fighter.subclass))); },
@@ -1909,7 +2044,7 @@ var BastionWorkaround = {
 					name : "Greenhouse",
 					description : desc([
 						"Gain 3 fruits that give benefits of Lesser Restoration spell (last 24 hours)",
-						"Harvest: 1 potion of Greater Healing or 1 poison from Assassin's Blood, Malice, Pale Tincture, Truth Serum (7 DT)"
+						"Harvest: 1 potion of Greater Healing or 1 poison from Assassin's Blood, Malice, Pale Tincture, Truth Serum (Turn)"
 					]),
 					source : [["D24", 341]],
 					submenu : "[Level 9+]",
@@ -1925,9 +2060,16 @@ var BastionWorkaround = {
 						firstCol : 1
 					}]
 				},
+				"harper hideout (prereq: harper)" : {
+					name : "Harper Hideout (Harpers Only)",
+					description : desc("Empower: Roll die. If even, train with Harper to gain proficiency in Deception, Investigation or Performance for 7 days (8 hrs/day/turn)"),
+					source : [["FRHoF", 161]],
+					submenu : "[Level 5+]",
+					prereqeval: function (v) { return v.characterLevel >= 5; },
+				},
 				"meditation chamber" : {
 					name : "Meditation Chamber",
-					description : desc("Gain advantage on 2 types of saving throws for 7 days. Roll 1d6 to determine which (7 DT)."),
+					description : desc("Gain advantage on 2 types of saving throws for 7 days. Roll 2d6 to determine which (Turn)"),
 					source : [["D24", 342]],
 					submenu : "[Level 13+]",
 					prereqeval: function (v) { return v.characterLevel >= 13; },
@@ -1935,7 +2077,7 @@ var BastionWorkaround = {
 				},
 				"observatory (prereq: can use spell focus)" : {
 					name : "Observatory",
-					description : desc("Gain magical charm that lets me cast Contact Other Plane without spell slots. Lasts for 7 days or until used (LR, 1 DT). Empower: Roll die. If odd, gain Charm of Darkvision, Heroism or Vitality (7 DT)."),
+					description : desc("Gain magical charm that lets me cast Contact Other Plane without spell slots. Lasts for 7 days or until used (LR). Empower: Roll die. If odd, gain Charm of Darkvision, Heroism or Vitality."),
 					source : [["D24", 343]],
 					submenu : "[Level 13+]",
 					prereqeval : function(v) { return (v.characterLevel >= 13) && (classes.known.cleric || classes.known.druid || classes.known.paladin || classes.known.ranger || classes.known.artificer || classes.known.bard || classes.known.sorcerer || classes.known.warlock || classes.known.wizard || (classes.known.rogue && (/arcane trickster/).test(classes.known.rogue.subclass)) || (classes.known.fighter && (/eldritch knight/).test(classes.known.fighter.subclass))); },
@@ -1966,7 +2108,7 @@ var BastionWorkaround = {
 				},
 				"reliquary (prereq: can use holy symbol/druidic spell focus)" : {
 					name : "Reliquary",
-					description : desc("Gain magical charm that lets me cast Greater Restoration without spell slots or Material components (LR, 1 DT). Harvest: talisman that can replace a single spell component up to 1000 GP (7 DT)."),
+					description : desc("Gain magical charm that lets me cast Greater Restoration without spell slots or Material components (LR). Harvest: Get talisman that can replace 1 spell component up to 1000 GP (Turn)"),
 					source : [["D24", 344]],
 					submenu : "[Level 13+]",
 					prereqeval : function(v) { return (v.characterLevel >= 13) && (classes.known.cleric || classes.known.druid || classes.known.paladin || classes.known.ranger); },
@@ -1984,7 +2126,7 @@ var BastionWorkaround = {
 				},
 				"sanctuary (prereq: can use holy symbol/druidic spell focus)" : {
 					name : "Sanctuary",
-					description : desc("Gain a magical charm that lets me cast Healing Word without a spell slot. Lasts for 7 days or until used (LR, 1 DT). Crafting options."),
+					description : desc("Gain a magical charm that lets me cast Healing Word without a spell slot. Lasts for 7 days or until used (LR). Crafting options."),
 					source : [["D24", 345]],
 					submenu : "[Level 5+]",
 					prereqeval : function(v) { return (v.characterLevel >= 5) && (classes.known.cleric || classes.known.druid || classes.known.paladin || classes.known.ranger); },
@@ -2003,9 +2145,9 @@ var BastionWorkaround = {
 				"sanctum (prereq: can use holy symbol/druidic spell focus)" : {
 					name : "Sanctum",
 					description : desc([
-						"Gain magical charm that lets me cast Heal without a spell slot. Lasts for 7 days or until used (LR, 1 DT).",
+						"Gain magical charm that lets me cast Heal without a spell slot. Lasts for 7 days or until used (LR).",
 						"Empower: Name beneficiary. Each time they finish a LR for 7 days, they gain temp HP equal to my level.",
-						"I always have Word of Recall prepared. When cast, I can return to my Sanctum and 1 creature gains the benefit of Heal on arrival."
+						"I have Word of Recall prepared. When cast, I can return to my Sanctum and 1 creature gains the benefit of Heal on arrival."
 					]),
 					source : [["D24", 346]],
 					submenu : "[Level 17+]",
@@ -2030,8 +2172,8 @@ var BastionWorkaround = {
 				"storehouse" : {
 					name : "Storehouse",
 					description : desc([
-						"Trade: Procure goods worth 500 gp (2000 gp at lvl 9, 5000 gp at lvl 13) [7 DT].",
-						"Trade: Sell goods in Storehouse for 10 percent profit (20 at lvl 9, 50 at 13, 100 at 17) [7 DT]"
+						"Trade: Procure goods worth 500 gp (2000 gp at lvl 9, 5000 gp at lvl 13).",
+						"Trade: Sell goods in Storehouse for 10 percent profit (20 at lvl 9, 50 at 13, 100 at 17)."
 					]),
 					source : [["D24", 347]],
 					submenu : "[Level 5+]",
@@ -2039,7 +2181,7 @@ var BastionWorkaround = {
 				},
 				"teleportation circle" : {
 					name : "Teleportation Circle",
-					description : desc("Recruit: 50% chance for NPC spellcaster to accept invitation (even roll). Stays for 14 days or until casts spell. Will cast up to 4th level spell (8th at level 17+)"),
+					description : desc("Recruit: 50% chance for NPC spellcaster to accept invitation (even roll). Stays for 14 days or until casts up to 4th level Wizard spell (8th at level 17+)"),
 					source : [["D24", 347]],
 					submenu : "[Level 9+]",
 					prereqeval: function (v) { return v.characterLevel >= 9; },
@@ -2047,7 +2189,7 @@ var BastionWorkaround = {
 				"training area" : {
 					name : "Training Area",
 					description : desc([
-						"Empower: 5 training options. Pick 1 per bastion turn. All durations are 7 days (7 DT).",
+						"Empower: 5 training options. Pick 1. All last 7 days (8 hrs/day/turn).",
 						"Battle Expert: When take damage from Unarmed Strike/weapon attack, Reaction to reduce by 1d4",
 						"Skills Expert: Gain proficiency in Acrobatics, Athletics, Performance, Sleight of Hand or Stealth",
 						"Tools Expert: Gain proficiency with 1 tool of my choice",
@@ -2062,6 +2204,13 @@ var BastionWorkaround = {
 					name : "Workshop",
 					description : desc("After a short rest, gain Heroic Inspiration. Crafting options."),
 					source : [["D24", 348]],
+					submenu : "[Level 5+]",
+					prereqeval: function (v) { return v.characterLevel >= 5; },
+				},
+				"zhentarim travel station (prereq: zhent)" : {
+					name : "Zhentarim Travel Station (Zhent Only)",
+					description : desc("Max travel pace increases by 1 step (LR). Research: Advantage on Wisdom (Survival) checks to forage or navigate for 1 journey (Turn)."),
+					source : [["FRHoF", 181]],
 					submenu : "[Level 5+]",
 					prereqeval: function (v) { return v.characterLevel >= 5; },
 				},
